@@ -11,16 +11,20 @@ export default function Main() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("https://pokeapi.co/api/v2/pokemon/?limit=20");
+        const response = await axios.get("https://pokeapi.co/api/v2/pokemon/");
+        // console.log(response)
         const results = response.data.results;
-        const pokemonData = await Promise.all(results.map(async (p) => {
-          const pokemonRes = await axios.get(p.url);
+        console.log(response.data);
+        const pokemonData = await Promise.all(results.map(async (p) => { //map iterates over each URL + creates new array with corresponding promises
+          // 'async(p)=>' p for parameter, p = each element URL in 'results' array
+          // everything after the '{' for (p) =>, is just code to be executed for every iteration of map method
+          const pokemonRes = await axios.get(p.url); //p.url selects the url, instead of name (the only 2 available, 'url' or 'name')
           return pokemonRes.data;
         }));
         setLoading(false);
         setPokemon(pokemonData);
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
 
