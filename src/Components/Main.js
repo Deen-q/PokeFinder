@@ -10,35 +10,31 @@ export default function Main() {
   const [prevPageUrl, setPrevPageUrl] = useState();
   const [loading, setLoading] = useState(true);
 
-  
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(currentPageUrl);
+        const response = await axios.get(currentPageUrl);
         setLoading(false);
-        setNextPageUrl(res.data.next);
-        setPrevPageUrl(res.data.previous);
-        const pokemonNames = res.data.results.map(p => p.name);
-        setPokemon(pokemonNames);
+        setNextPageUrl(response.data.next);
+        setPrevPageUrl(response.data.previous);
+        setPokemon(response.data.results);
       } catch (error) {
-        // Handle error here
         console.error(error);
       }
     };
-  
+
     fetchData();
   }, [currentPageUrl]);
-  
 
   if (loading) return "Loading...";
 
   return (
     <div className="Main_js_container">
       <div className="left-content">
-        {pokemon.map((p, index) => ( 
-          <Card key={index} pokemon={p} />
-        ))} {/*map over array and create Card component for each Pokemon's name. The key ensures a unique identifier*/}
+        {pokemon.map((p, index) => (
+          <Card key={index} pokemonUrl={p.url} />
+        ))}
         <div className="btn-div">
           <button>Previous</button>
           <button>Next</button>
