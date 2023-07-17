@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import Card from './Card';
-import PokeInfo from './PokeInfo';
+import PokemonInfo from './PokemonInfo';
 import axios from 'axios';
 
 export default function Main() {
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [currentUrl, setCurrentUrl] = useState("https://pokeapi.co/api/v2/pokemon/");
+  const [currentUrl, setCurrentUrl] = useState("https://pokeapi.co/api/v2/pokemon/?offset=20&limit=10");
   const [nextPageState, setNextPageState] = useState();
   const [prevPageState, setPrevPageState] = useState();
+
+  const[selectedPokemonState, setSelectedPokemonState] = useState();
 
 
   useEffect(() => {
@@ -38,6 +40,8 @@ export default function Main() {
 
         setLoading(false);
         setPokemon(entirePokemonArrayData); // !!! useState var 'pokemon' is now = to pokemonData
+
+        //'pokemon' MUST BE USED FOR INDIVIDUAL POKEMON OBJECTS, BECAUSE THEY ARE PROCESSED ONE BY ONE USING .map
         setPrevPageState(prevPage)
         setNextPageState(nextPage)
         
@@ -51,6 +55,10 @@ export default function Main() {
     return () => cancel() //prevents old data from loading on top of newer data
   }, [currentUrl]); // end of useEffect
 
+  const selectedPokemon = (pokemon) => { // anon for independent clicks
+    setSelectedPokemonState(pokemon)
+  }
+
   if (loading) return "Loading...";
 
   return (
@@ -58,13 +66,13 @@ export default function Main() {
       <div className="left-content">
         {pokemon.map((p, index) => (
           <Card key={index} pokemon={p} />
-        ))} {/*.map creates a card per pokemon in the array
-        ->for each element, in pokemon array --> execute the arrow function --> returns Card component with pokemon PROP
+        ))} {/*.map creates a card per pokemon in the array -->execute the arrow function -->returns Card component with pokemon PROP
         ---> pokemon prop/pokemon data, symbolised as p for every iteration
         ----> p is a VARIABLE that holds value of the current pokemon data being processed by each iteration of .map function
         -> each card receives a different pokemon object as the pokemon prop*/}
         
         <div className="btn-div">
+        {/* "Conditional Rendering" */}
           {prevPageState && ( // prevPageState has a truthy value only when previous page URL is available. It does not on page 1. 
             <button onClick={()=> { setCurrentUrl(prevPageState)
           }} >Previous
@@ -78,8 +86,10 @@ export default function Main() {
         
       </div>
       <div className="right-content">
-        <PokeInfo />
+        <PokemonInfo pokemonRes={selectedPokemon}/>
       </div>
     </div>
   );
 }
+
+

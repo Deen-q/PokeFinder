@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function PokeInfo() {
+export default function PokemonInfo( {pokemonRes} ) {
   return (
     <>
     <h1>Shrek Info</h1>
