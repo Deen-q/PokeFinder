@@ -6,11 +6,11 @@ import axios from 'axios';
 export default function Main() {
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [currentUrl, setCurrentUrl] = useState("https://pokeapi.co/api/v2/pokemon/?offset=20&limit=10");
+  const [currentUrl, setCurrentUrl] = useState("https://pokeapi.co/api/v2/pokemon/?limit=10");
   const [nextPageState, setNextPageState] = useState();
   const [prevPageState, setPrevPageState] = useState();
 
-  const[selectedPokemonState, setSelectedPokemonState] = useState();
+  // const [selectedPokemonState, setSelectedPokemonState] = useState();
 
 
   useEffect(() => {
@@ -55,9 +55,9 @@ export default function Main() {
     return () => cancel() //prevents old data from loading on top of newer data
   }, [currentUrl]); // end of useEffect
 
-  const selectedPokemon = (pokemon) => { // anon for independent clicks
-    setSelectedPokemonState(pokemon)
-  }
+  // const selectedPokemon = (pokemon) => { 
+  //   setSelectedPokemonState(pokemon)
+  // }
 
   if (loading) return "Loading...";
 
@@ -65,11 +65,12 @@ export default function Main() {
     <div className="Main_js_container">
       <div className="left-content">
         {pokemon.map((p, index) => (
-          <Card key={index} pokemon={p} />
-        ))} {/*.map creates a card per pokemon in the array -->execute the arrow function -->returns Card component with pokemon PROP
-        ---> pokemon prop/pokemon data, symbolised as p for every iteration
-        ----> p is a VARIABLE that holds value of the current pokemon data being processed by each iteration of .map function
-        -> each card receives a different pokemon object as the pokemon prop*/}
+          <Card key={index} pokemon={p} 
+
+          />
+        ))} {/*.map creates a card per pokemon in the array -> execute the arrow function -> returns Card component with pokemon data, p for ea iteration
+        --> p is a VARIABLE that holds value of the current pokemon data being processed by each iteration of .map function
+        ---> each card receives a different pokemon object as the pokemon prop*/}
         
         <div className="btn-div">
         {/* "Conditional Rendering" */}
@@ -82,12 +83,14 @@ export default function Main() {
           onClick={()=> {
             setCurrentUrl(nextPageState)
           }} >Next</button>
-        </div>
+        </div>{/*end of btn-div*/}
         
-      </div>
+      </div>{/*End of left-container div*/}
+
       <div className="right-content">
-        <PokemonInfo pokemonRes={selectedPokemon}/>
+        <PokemonInfo />
       </div>
+
     </div>
   );
 }
