@@ -13,11 +13,13 @@ export default function PokemonInfo({ selectedPokemon }) {
     <div>
       <h2>Selected Pokemon Info</h2>
       <p>{capitalisedName}</p>
+
       <img 
       className="OfficialArtwork"
       src={selectedPokemon.sprites.other['official-artwork'].front_default} 
       alt={`Official Artwork for ${selectedPokemon}`}
       />
+      
       <h2>HP:{selectedPokemon.stats[0].base_stat}</h2>
       <h2>Attack:{selectedPokemon.stats[1].base_stat}</h2>
       <h2>Defense:{selectedPokemon.stats[2].base_stat}</h2>

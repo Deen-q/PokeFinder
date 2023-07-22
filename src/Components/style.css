@@ -1,110 +1,101 @@
- @import url('https://fonts.googleapis.com/css2?family=BIZ+UDPMincho&family=Montserrat:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=BIZ+UDPMincho&family=Montserrat:wght@300;400&display=swap');
 
- :root {
-    --red-button-color: #B74555;
-    --card-color: #3fd1d4;
-  }  
+:root {
+  --red-button-color: #B74555;
+  --card-color: #3fd1d4;
+}  
 
-*{
-    padding: 0;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
-body{
-    background-color: bisque;
+body {
+  background-color: bisque;
 }
 
 .Main_js_container {
-    width: 90%;
-    margin: auto;
-    padding-top: 100px;
-    display: flex;
+  width: 90%;
+  margin: auto;
+  padding-top: 100px;
+  /* padding-bottom: 300px; */
+  display: flex;
+  flex-direction: column;
 }
 
-.Card_js{
-    width: 300px;
-    background-color: var(--card-color);
-    border-radius: 1rem;
-    box-shadow: 0 5px 5px black;
-    padding: 0 1.5rem;
-    /* padding: 1rem; */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
+.Card_js {
+  width: 300px;
+  background-color: var(--card-color);
+  border-radius: 1rem;
+  box-shadow: 0 5px 5px black;
+  padding: 0 1.5rem;
+  /* padding: 1rem; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 
-.left-content, .right-content { /* Card.js */
-    flex-basis: 50%;
+.left-content, .right-content {
+  /* Card.js */
+  flex-basis: 50%;
 }
 
-.left-content{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
-    grid-gap: 2rem; 
+.left-content {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  grid-gap: 2rem;
+  flex-wrap: wrap;
 }
 
-.left-content img{
-    width: 25%;
+.left-content img {
+  width: 25%;
 }
 
-.right-content{
-    width: 50%;
-    text-align: center;
-    color: black;
-    position: fixed; /* this stops the right side scrolling*/
-    /* top: 100px; */
-    right: 10px;
-}
-
-.right-content img {
-    margin: 2rem;
+.right-content {
+  width: 50%;
+  text-align: center;
+  color: black;
+  position: fixed; /* this stops the right side scrolling*/
+  /* top: 100px; */
+  right: 10px;
 }
 
 .right-content h1 {
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.abilities {
-    /* width: 30%;
-    margin: auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center; */
-    margin-top: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .stats {
-    background-color: var(--red-button-color);
-    color: white;
-    padding: 0.5rem;
-    font-size: 12px;
-    border-radius: 8px;
-    width: 5vw;
-    justify-content: center;
+  background-color: var(--red-button-color);
+  color: white;
+  padding: 0.5rem;
+  font-size: 12px;
+  border-radius: 8px;
+  width: 5vw;
+  justify-content: center;
 }
 
 .btn-div button {
-   /* display: flex; */
-   outline: none;
-   border: none;
-   width: 150px;
-   padding: 0.3rem 0;
-   margin: 1rem;
-   font-size: 17px;
-   color: white;
-   background-color: var(--red-button-color);
-   border-radius: 8px;
+  /* display: flex; */
+  outline: none;
+  border: none;
+  width: 150px;
+  padding: 0.3rem 0;
+  margin: 1rem;
+  font-size: 17px;
+  color: white;
+  background-color: var(--red-button-color);
+  border-radius: 8px;
 }
 
-.btn-div{
-    display: flex;
-    /* gap: 10px; */
+.btn-div {
+  display: flex;
+  /* gap: 10px; */
 }
 
 .OfficialArtwork {
-    width:15rem;
+  width: 15rem;
 }

@@ -59,6 +59,10 @@ export default function Main() {
 
   return (
     <div className="Main_js_container">
+      <div className='SearchBox'>
+      <input/>
+      </div>
+
       <div className="left-content">
       {/*Iteration: make 1 card per Pokemon*/}
         {pokemon.map((p, index) => (
@@ -86,6 +90,6 @@ export default function Main() {
         <PokemonInfo selectedPokemon={selectedPokemon}/>
       </div>
 
-    </div>
+    </div> //End of Main_js_container
   );
 }
