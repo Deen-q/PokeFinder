@@ -1,81 +1,91 @@
 @import url('https://fonts.googleapis.com/css2?family=BIZ+UDPMincho&family=Montserrat:wght@300;400&display=swap');
 
 :root {
-  --red-button-color: #B74555;
-  --card-color: #3fd1d4;
-}  
+   --red-button-color: #B74555;
+   --card-color: #3fd1d4;
+ }  
 
-* {
-  padding: 0;
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
+*{
+   padding: 0;
+   margin: 0;
+   font-family: 'Montserrat', sans-serif;
 }
 
-body {
-  background-color: bisque;
+body{
+   background-color: bisque;
 }
 
 .Main_js_container {
-  width: 90%;
-  margin: auto;
-  padding-top: 100px;
-  /* padding-bottom: 300px; */
-  display: flex;
-  flex-direction: column;
+    width: 90%;
+    margin: auto;
+    padding-top: 5%;
+    display: flex;
+    position: relative;
 }
 
-.Card_js {
-  width: 300px;
-  background-color: var(--card-color);
-  border-radius: 1rem;
-  box-shadow: 0 5px 5px black;
-  padding: 0 1.5rem;
-  /* padding: 1rem; */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
+.SearchBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 2%;
+  }
+
+  .left-content {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr)); /* 2 columns */
+    grid-gap: 2rem;
+  }
+
+.Card_js{
+   width: 300px;
+   background-color: var(--card-color);
+   border-radius: 1rem;
+   box-shadow: 0 5px 5px black;
+   padding: 0 1.5rem;
+   /* padding: 1rem; */
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   box-sizing: border-box;
 }
 
-.left-content, .right-content {
-  /* Card.js */
-  flex-basis: 50%;
+.left-content, .right-content { /* Card.js */
+   flex-basis: 50%;
 }
 
-.left-content {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(300px, 1fr));
-  grid-gap: 2rem;
-  flex-wrap: wrap;
+.left-content img{
+   width: 25%;
 }
 
-.left-content img {
-  width: 25%;
+.right-content{
+   width: 50%;
+   text-align: center;
+   color: black;
+   /* position: fixed; this stops the right side scrolling */
+   /* top: 100px; */
+   right: 10px;
 }
 
-.right-content {
-  width: 50%;
-  text-align: center;
-  color: black;
-  position: fixed; /* this stops the right side scrolling*/
-  /* top: 100px; */
-  right: 10px;
+.right-content img {
+   margin: 2rem;
 }
 
 .right-content h1 {
-  text-transform: uppercase;
-  font-weight: bold;
-  letter-spacing: 1px;
+   text-transform: uppercase;
+   font-weight: bold;
+   letter-spacing: 1px;
 }
 
+
+
 .stats {
-  background-color: var(--red-button-color);
-  color: white;
-  padding: 0.5rem;
-  font-size: 12px;
-  border-radius: 8px;
-  width: 5vw;
-  justify-content: center;
+   background-color: var(--red-button-color);
+   color: white;
+   padding: 0.5rem;
+   font-size: 12px;
+   border-radius: 8px;
+   width: 5vw;
+   justify-content: center;
 }
 
 .btn-div button {
@@ -91,11 +101,11 @@ body {
   border-radius: 8px;
 }
 
-.btn-div {
-  display: flex;
-  /* gap: 10px; */
+.btn-div{
+   display: flex;
+   /* gap: 10px; */
 }
 
 .OfficialArtwork {
-  width: 15rem;
+   width:15rem;
 }
