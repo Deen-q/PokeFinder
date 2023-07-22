@@ -9,6 +9,11 @@ export default function Main() {
   const [currentUrl, setCurrentUrl] = useState("https://pokeapi.co/api/v2/pokemon/?limit=10");
   const [nextPageState, setNextPageState] = useState();
   const [prevPageState, setPrevPageState] = useState();
+  
+  const [selectedPokemon, setSelectedPokemon] = useState(null);
+  function handleCardClick(pokemon) { 
+    console.log("Selected Pokemon:", pokemon);
+  }
 
   // const [selectedPokemonState, setSelectedPokemonState] = useState();
 
@@ -64,13 +69,12 @@ export default function Main() {
   return (
     <div className="Main_js_container">
       <div className="left-content">
+      {/*Iteration: make 1 card per Pokemon*/}
         {pokemon.map((p, index) => (
           <Card key={index} pokemon={p} 
-
+          handleCardClick={handleCardClick}
           />
-        ))} {/*.map creates a card per pokemon in the array -> execute the arrow function -> returns Card component with pokemon data, p for ea iteration
-        --> p is a VARIABLE that holds value of the current pokemon data being processed by each iteration of .map function
-        ---> each card receives a different pokemon object as the pokemon prop*/}
+        ))} 
         
         <div className="btn-div">
         {/* "Conditional Rendering" */}
