@@ -1,18 +1,18 @@
 import React from 'react'
 
-export default function PokemonInfo( {pokemonRes} ) {
+export default function PokemonInfo({ selectedPokemon }) {
+  if (!selectedPokemon) {
+    return <div>No Pokemon selected</div>;
+  }
+
+  const capitalisedName = selectedPokemon.name.charAt(0).toUpperCase() + selectedPokemon.name.slice(1) // This had to be BELOW the conditional check...
+
   return (
-    <>
-    <h1>Shrek Info</h1>
-    <h2>Insert Sprite Image Here</h2>
+    <div>
+      <h1>Selected Pokemon Info</h1>
+      <p>{capitalisedName}</p>
+      {/* Add other information as needed */}
+      </div>
+      );
+    }
 
-        <div className='abilities'>
-        <h2>Abilities</h2>
-        </div>
-
-        <div className='stats'>
-        <h2>Stats</h2>
-        </div>
-    </>
-  )
-}

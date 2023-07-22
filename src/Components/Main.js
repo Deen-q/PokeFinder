@@ -13,8 +13,8 @@ export default function Main() {
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   function handleCardClick(pokemon) { 
     console.log("Selected Pokemon:", pokemon);
+    setSelectedPokemon(pokemon)
   }
-
 
   useEffect(() => {
     let cancel // undefined, handled using the CancelToken
@@ -32,22 +32,21 @@ export default function Main() {
         const prevPage = response.data.previous
 
         const entirePokemonArrayData = await Promise.all(results.map(async (p) => { 
-          // pokemonRes = response data for INDIVIDUAL Pokemon API call
-          const pokemonRes = await axios.get(p.url);
+          const pokemonRes = await axios.get(p.url); // pokemonRes = response data for INDIVIDUAL Pokemon API call
 
           return pokemonRes.data;
         })); // return from entirePokemonArray
 
         setLoading(false);
-        setPokemon(entirePokemonArrayData); // 'pokemon'now = to pokemonData
-
+        setPokemon(entirePokemonArrayData); // 'pokemon' now = to pokemonData
         //'pokemon' MUST BE USED FOR INDIVIDUAL POKEMON OBJECTS, BECAUSE THEY ARE PROCESSED ONE BY ONE USING .map
+
         setPrevPageState(prevPage)
         setNextPageState(nextPage)
         
       } catch (error) {
-        console.error(error, "Uh-oh, useEffect Error");
         // Everything written in this error block is what code will be executed in the event there is an error.Good backup solution.
+        console.error(error, "Uh-oh, useEffect Error");
       }
     };
 
@@ -84,7 +83,7 @@ export default function Main() {
       </div>{/*End of left-container div*/}
 
       <div className="right-content">
-        <PokemonInfo />
+        <PokemonInfo selectedPokemon={selectedPokemon}/>
       </div>
 
     </div>
