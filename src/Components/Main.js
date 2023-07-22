@@ -15,8 +15,6 @@ export default function Main() {
     console.log("Selected Pokemon:", pokemon);
   }
 
-  // const [selectedPokemonState, setSelectedPokemonState] = useState();
-
 
   useEffect(() => {
     let cancel // undefined, handled using the CancelToken
@@ -33,18 +31,15 @@ export default function Main() {
         const nextPage = response.data.next
         const prevPage = response.data.previous
 
-    // 'async(p)=>' p for parameter, p = each element URL in 'results' array. Everything after => is executed for every .map iteration
         const entirePokemonArrayData = await Promise.all(results.map(async (p) => { 
-          //map iterates over each URL + creates new array with corresponding promises
-          
           // pokemonRes = response data for INDIVIDUAL Pokemon API call
-          const pokemonRes = await axios.get(p.url); //p.url selects the url, instead of name (the only 2 available, 'url' or 'name')
+          const pokemonRes = await axios.get(p.url);
 
           return pokemonRes.data;
-        }));
+        })); // return from entirePokemonArray
 
         setLoading(false);
-        setPokemon(entirePokemonArrayData); // !!! useState var 'pokemon' is now = to pokemonData
+        setPokemon(entirePokemonArrayData); // 'pokemon'now = to pokemonData
 
         //'pokemon' MUST BE USED FOR INDIVIDUAL POKEMON OBJECTS, BECAUSE THEY ARE PROCESSED ONE BY ONE USING .map
         setPrevPageState(prevPage)
@@ -60,9 +55,6 @@ export default function Main() {
     return () => cancel() //prevents old data from loading on top of newer data
   }, [currentUrl]); // end of useEffect
 
-  // const selectedPokemon = (pokemon) => { 
-  //   setSelectedPokemonState(pokemon)
-  // }
 
   if (loading) return "Loading...";
 
@@ -98,5 +90,3 @@ export default function Main() {
     </div>
   );
 }
-
-
