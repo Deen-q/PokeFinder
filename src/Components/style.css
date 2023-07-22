@@ -104,3 +104,7 @@ body{
     display: flex;
     /* gap: 10px; */
 }
+
+.OfficialArtwork {
+    width:15rem;
+}
