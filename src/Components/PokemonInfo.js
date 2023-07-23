@@ -20,12 +20,12 @@ export default function PokemonInfo({ selectedPokemon }) {
       alt={`Official Artwork for ${selectedPokemon}`}
       />
       
-      <h2>HP:{selectedPokemon.stats[0].base_stat}</h2>
-      <h2>Attack:{selectedPokemon.stats[1].base_stat}</h2>
-      <h2>Defense:{selectedPokemon.stats[2].base_stat}</h2>
-      <h2>Sp. Attack:{selectedPokemon.stats[3].base_stat}</h2>
-      <h2>Sp. Defense:{selectedPokemon.stats[4].base_stat}</h2>
-      <h2>Speed:{selectedPokemon.stats[5].base_stat}</h2>
+      <h3>HP:{selectedPokemon.stats[0].base_stat}</h3>
+      <h3>Attack:{selectedPokemon.stats[1].base_stat}</h3>
+      <h3>Defense:{selectedPokemon.stats[2].base_stat}</h3>
+      <h3>Sp. Attack:{selectedPokemon.stats[3].base_stat}</h3>
+      <h3>Sp. Defense:{selectedPokemon.stats[4].base_stat}</h3>
+      <h3>Speed:{selectedPokemon.stats[5].base_stat}</h3>
       </div>
       );
     }

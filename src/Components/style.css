@@ -23,21 +23,43 @@ body{
     position: relative;
 }
 
+.NavBar {
+   order: 1;
+   position: absolute;
+   top: 0;
+   left: 0;
+   padding-top: 2%;
+   background-color: rgb(249, 212, 166);
+   width: 100%;
+}
+
+.NavBar h2 {
+   display: flex;
+   align-content: center;
+}
+
 .SearchBox {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding-top: 2%;
+   order: 2;
+   position: absolute;
+   top: 0;
+   left: 0;
+   padding-top: 5%;
   }
 
-  .left-content {
+  .left_content {
+   padding-top: 3%;
     display: grid;
     grid-template-columns: repeat(2, minmax(300px, 1fr)); /* 2 columns */
-    grid-gap: 2rem;
+    gap: 2rem;
   }
+
+  .left_content img{
+   width: 30%;
+}
 
 .Card_js{
    width: 300px;
+   height: 75px;
    background-color: var(--card-color);
    border-radius: 1rem;
    box-shadow: 0 5px 5px black;
@@ -47,17 +69,15 @@ body{
    align-items: center;
    justify-content: space-between;
    box-sizing: border-box;
+   cursor: pointer;
 }
 
-.left-content, .right-content { /* Card.js */
+.left_content, .right_content { /* Card.js */
    flex-basis: 50%;
 }
 
-.left-content img{
-   width: 25%;
-}
-
-.right-content{
+.right_content{
+   padding-top: 3%;
    width: 50%;
    text-align: center;
    color: black;
@@ -66,17 +86,15 @@ body{
    right: 10px;
 }
 
-.right-content img {
+.right_content img {
    margin: 2rem;
 }
 
-.right-content h1 {
+.right_content h1 {
    text-transform: uppercase;
    font-weight: bold;
    letter-spacing: 1px;
 }
-
-
 
 .stats {
    background-color: var(--red-button-color);
@@ -88,20 +106,22 @@ body{
    justify-content: center;
 }
 
-.btn-div button {
+.btn_div button {
   /* display: flex; */
   outline: none;
   border: none;
   width: 150px;
+  height: 35px;
   padding: 0.3rem 0;
   margin: 1rem;
   font-size: 17px;
   color: white;
   background-color: var(--red-button-color);
   border-radius: 8px;
+  cursor: pointer;
 }
 
-.btn-div{
+.btn_div{
    display: flex;
    /* gap: 10px; */
 }

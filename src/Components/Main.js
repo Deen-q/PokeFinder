@@ -2,19 +2,24 @@ import React, { useEffect, useState } from 'react';
 import Card from './Card';
 import PokemonInfo from './PokemonInfo';
 import axios from 'axios';
+import NavBar from './NavBar';
 
 export default function Main() {
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [currentUrl, setCurrentUrl] = useState("https://pokeapi.co/api/v2/pokemon/?limit=10");
+  const [currentUrl, setCurrentUrl] = useState("https://pokeapi.co/api/v2/pokemon/");
   const [nextPageState, setNextPageState] = useState();
   const [prevPageState, setPrevPageState] = useState();
   
   const [selectedPokemon, setSelectedPokemon] = useState(null);
-  function handleCardClick(pokemon) { 
+  
+  function handleCardClick(pokemon) { // pokemon argument represents the clicked hard. Updates 'selectedPokemon' accordingly!
     console.log("Selected Pokemon:", pokemon);
     setSelectedPokemon(pokemon)
   }
+
+  const [searchedPokemon, setSearchedPokemon] = useState();
+  const [singleCallPokemon, setSingleCallPokemon] = useState();
 
   useEffect(() => {
     let cancel // undefined, handled using the CancelToken
@@ -23,16 +28,17 @@ export default function Main() {
         setLoading(true);
 
         // response -> overall data from initial API call
-        const response = await axios.get(currentUrl, {
+        const response = await axios.get(`${currentUrl}?limit=10`, {
           cancelToken: new axios.CancelToken(c => cancel = c)
         });
        
         const results = response.data.results;
         const nextPage = response.data.next
         const prevPage = response.data.previous
-
+        
+        let pokemonRes;
         const entirePokemonArrayData = await Promise.all(results.map(async (p) => { 
-          const pokemonRes = await axios.get(p.url); // pokemonRes = response data for INDIVIDUAL Pokemon API call
+          pokemonRes = await axios.get(p.url); // pokemonRes = response data for INDIVIDUAL Pokemon API call. ENDS on last Pokemon entry.
 
           return pokemonRes.data;
         })); // return from entirePokemonArray
@@ -40,6 +46,8 @@ export default function Main() {
         setLoading(false);
         setPokemon(entirePokemonArrayData); // 'pokemon' now = to pokemonData
         //'pokemon' MUST BE USED FOR INDIVIDUAL POKEMON OBJECTS, BECAUSE THEY ARE PROCESSED ONE BY ONE USING .map
+
+        setSingleCallPokemon(pokemonRes)
 
         setPrevPageState(prevPage)
         setNextPageState(nextPage)
@@ -59,11 +67,23 @@ export default function Main() {
 
   return (
     <div className="Main_js_container">
+    <NavBar />
+
       <div className='SearchBox'>
-      <input/>
+      <input 
+      placeholder='Search by name'
+      type='text'
+      onChange={(e) =>{
+        setSearchedPokemon(e.target.value)
+      }}
+
+      />
+      <button
+      // onClick={Search}
+      >Search</button>
       </div>
 
-      <div className="left-content">
+      <div className="left_content">
       {/*Iteration: make 1 card per Pokemon*/}
         {pokemon.map((p, index) => (
           <Card key={index} pokemon={p} 
@@ -71,7 +91,7 @@ export default function Main() {
           />
         ))} 
         
-        <div className="btn-div">
+        <div className="btn_div">
         {/* "Conditional Rendering" */}
           {prevPageState && ( // prevPageState has a truthy value only when previous page URL is available. It does not on page 1. 
             <button onClick={()=> { setCurrentUrl(prevPageState)
@@ -86,7 +106,7 @@ export default function Main() {
         
       </div>{/*End of left-container div*/}
 
-      <div className="right-content">
+      <div className="right_content">
         <PokemonInfo selectedPokemon={selectedPokemon}/>
       </div>
 
