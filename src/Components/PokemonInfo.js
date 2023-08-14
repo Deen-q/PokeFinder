@@ -1,4 +1,5 @@
 import React from 'react'
+import './PokemonInfo.css'
 
 export default function PokemonInfo({ selectedPokemon }) {
   if (!selectedPokemon) { // if falsy
@@ -6,13 +7,14 @@ export default function PokemonInfo({ selectedPokemon }) {
   } //reminder: code not executed if this return is fulfilled!
   //Thus, bypasses the issue when selectedPokemon = null
 
-  const capitalisedName = selectedPokemon.name.charAt(0).toUpperCase() + selectedPokemon.name.slice(1) // This had to be BELOW the conditional check...
+  const capitalisedName = selectedPokemon.name.charAt(0).toUpperCase() + selectedPokemon.name.slice(1) 
+  // ABOVE: this had to be BELOW the conditional check...
 
 
   return (
     <div>
-      <h2>Selected Pokemon Info</h2>
-      <p>{capitalisedName}</p>
+      <p>Selected Pokemon Info:</p>
+      <h3>{capitalisedName}</h3>
 
       <img 
       className="OfficialArtwork"
@@ -20,13 +22,30 @@ export default function PokemonInfo({ selectedPokemon }) {
       alt={`Official Artwork for ${selectedPokemon}`}
       />
       
-      <h3>HP:{selectedPokemon.stats[0].base_stat}</h3>
-      <h3>Attack:{selectedPokemon.stats[1].base_stat}</h3>
-      <h3>Defense:{selectedPokemon.stats[2].base_stat}</h3>
-      <h3>Sp. Attack:{selectedPokemon.stats[3].base_stat}</h3>
-      <h3>Sp. Defense:{selectedPokemon.stats[4].base_stat}</h3>
-      <h3>Speed:{selectedPokemon.stats[5].base_stat}</h3>
-      </div>
-      );
-    }
-
+      <table className="statsTable">
+        <thead>
+          <tr>
+            <th></th>
+            <th>HP</th>
+            <th>Attack</th>
+            <th>Defense</th>
+            <th>Sp. Attack</th>
+            <th>Sp. Defense</th>
+            <th>Speed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Base Stat</td>
+            <td>{selectedPokemon.stats[0].base_stat}</td>
+            <td>{selectedPokemon.stats[1].base_stat}</td>
+            <td>{selectedPokemon.stats[2].base_stat}</td>
+            <td>{selectedPokemon.stats[3].base_stat}</td>
+            <td>{selectedPokemon.stats[4].base_stat}</td>
+            <td>{selectedPokemon.stats[5].base_stat}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+}
