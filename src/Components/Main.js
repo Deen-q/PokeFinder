@@ -66,11 +66,11 @@ export default function Main() {
     return () => cancel(); //prevents old data from loading on top of newer data
   }, [currentUrl]); // end of useEffect
 
-  const handleSearchInputChange = (e) => {
+  function handleSearchInputChange(e) {
     setSearchedPokemonName(e.target.value.toLowerCase());
   };
 
-  const handleSearchButtonClick = async () => {
+  async function handleSearchButtonClick() {
     try {
       setLoading(true);
       const response = await axios.get(
@@ -88,6 +88,7 @@ export default function Main() {
   };
 
   if (loading) return "Loading...";
+
 
   return (
     <div className="Main_js_container">
