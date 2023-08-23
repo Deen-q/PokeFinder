@@ -7,6 +7,11 @@ export default function PokemonInfo({ selectedPokemon }) {
   } //reminder: code not executed if this return is fulfilled!
   //Thus, bypasses the issue when selectedPokemon = null
 
+  if (typeof selectedPokemon === 'string') {
+    // Handle the case when a search string is provided
+    return <div>Loading...</div>; // loading msg
+  }
+
   const capitalisedName = selectedPokemon.name.charAt(0).toUpperCase() + selectedPokemon.name.slice(1) 
   // ABOVE: this had to be BELOW the conditional check...
 
