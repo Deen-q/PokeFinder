@@ -74,7 +74,7 @@ export default function Main() {
     try {
       setLoading(true);
       const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${searchedPokemonName}`
+        `https://pokeapi.co/api/v2/pokemon/${searchedPokemonName}` // works via number: API queries based on name or ID (no.)
       );
 
       const searchedPokemon = response.data;
@@ -87,7 +87,7 @@ export default function Main() {
     }
   };
 
-  if (loading) return "Loading...";
+  if (loading) return <h2 className="LoadingAlert">Loading...</h2>
 
 
   return (
@@ -100,7 +100,10 @@ export default function Main() {
           type="text"
           onChange={handleSearchInputChange}
         />
-        <button onClick={handleSearchButtonClick}>Search</button>
+        <button 
+        className="SearchButton"
+        onClick={handleSearchButtonClick}
+        >Search</button>
       </div>
 
       <div className="left_content">
