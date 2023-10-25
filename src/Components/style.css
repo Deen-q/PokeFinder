@@ -31,6 +31,7 @@ body{
    padding-top: 2%;
    background-color: rgb(249, 212, 166);
    width: 100%;
+   margin-top: 0.1%;
 }
 
 .NavBar h2 {
@@ -46,12 +47,12 @@ body{
    padding-top: 5%;
   }
 
-  .left_content {
+.left_content {
    padding-top: 3%;
     display: grid;
     grid-template-columns: repeat(2, minmax(300px, 1fr)); /* 2 columns */
     gap: 2rem;
-  }
+}
 
   .left_content img{
    width: 30%;
