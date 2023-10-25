@@ -107,10 +107,12 @@ export default function Main() {
       </div>
 
       <div className="left_content">
+        <div className="Card_Container">
         {/*Iteration: make 1 card per Pokemon*/}
         {pokemon.map((p, index) => (
           <Card key={index} pokemon={p} handleCardClick={handleCardClick} />
         ))}
+        </div>
 
         <div className="btn_div">
         {/* "Conditional Rendering" */}

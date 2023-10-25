@@ -20,7 +20,8 @@ body{
     margin: auto;
     padding-top: 5%;
     display: flex;
-    position: relative;
+    /* position: relative; */
+    position: column;
 }
 
 .NavBar {
@@ -43,12 +44,17 @@ body{
    order: 2;
    position: absolute;
    top: 0;
-   left: 0;
+   /* left: 0; */
    padding-top: 5%;
+   width: 100%;
   }
 
-.left_content {
-   padding-top: 3%;
+  input {
+   width: 15%;
+  }
+
+.Card_Container {
+   padding-top: 6%;
     display: grid;
     grid-template-columns: repeat(2, minmax(300px, 1fr)); /* 2 columns */
     gap: 2rem;
