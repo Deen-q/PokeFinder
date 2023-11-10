@@ -52,7 +52,7 @@ body {
    /* ensure  image takes up 100% of the anchor's width */
 }
 
-.NavBar>img:hover {
+.NavBar>a:hover {
    transform: scale(0.97);
 }
 
@@ -63,6 +63,10 @@ body {
    /* left: 0; */
    padding: 1% 0 0 2%;
    /* width: 100%; */
+}
+
+.SearchButton  {
+   margin-left: 0.5%;
 }
 
 input {
@@ -98,6 +102,10 @@ input {
    cursor: pointer;
 }
 
+.Card_Container div:hover {
+   transform: scale(0.996);
+}
+
 .left_content,
 .right_content {
    /* Card.js */
@@ -124,6 +132,12 @@ input {
    letter-spacing: 1px;
 }
 
+.btn_div {
+   display: flex;
+   /* gap: 10px; */
+   margin-top: 1%;
+}
+
 .btn_div button {
    /* display: flex; */
    outline: none;
@@ -137,24 +151,23 @@ input {
    background-color: var(--red-button-color);
    border-radius: 8px;
    cursor: pointer;
+   transition: transform 0.3s;
 }
 
-.btn_div {
-   display: flex;
-   /* gap: 10px; */
-   margin-top: 1%;
+.btn_div :hover {
+   transform: scale(0.98);
 }
 
 .OfficialArtwork {
    width: 15rem;
 }
 
-@media (min-width: 1686px) {
+/* @media (min-width: 1686px) {
    body {
       display: flex;
       justify-content: center;
       align-items: center;
    }
-}
+} */
 
 /*turns out my second monitors screen is 1685px*/

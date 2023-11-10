@@ -67,18 +67,29 @@ export default function Main() {
   }, [currentUrl]); // end of useEffect
 
   function handleSearchInputChange(e) {
+    if(e.target.value === "") {
+      alert("Please enter a Pokemon name or number");
+    } else {
     setSearchedPokemonName(e.target.value.toLowerCase());
+    }
   }
 
   async function handleSearchButtonClick() {
     try {
       setLoading(true);
-      const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${searchedPokemonName}` // works via number: API queries based on name or ID (no.)
-      );
 
-      const searchedPokemon = response.data;
-      setSelectedPokemon(searchedPokemon);
+      // check if searchedPokemonName is not empty or undefined
+      if (searchedPokemonName && searchedPokemonName.trim() !== "") {
+        const response = await axios.get(
+          `https://pokeapi.co/api/v2/pokemon/${searchedPokemonName}`
+        );
+
+        const searchedPokemon = response.data;
+        setSelectedPokemon(searchedPokemon);
+      } else {
+        alert("Please enter a Pokemon name or number");
+      }
+
       setLoading(false);
     } catch (error) {
       console.error(error, "Uh-oh, Search Error");
