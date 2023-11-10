@@ -4,6 +4,8 @@ A simple 'PokeDex' i.e., an encyclopedia of Pokemon. The first React I created b
 <br>
 The site can be found at this link (also on the right hand side of this page): [https://github.com/Deen-q/PokeFinder](https://pokefinder-deen-q.vercel.app/).
           
+## Screenshot
+![Screenshot](public/images/PokeFinderScreenshot.PNG)
 
 ## Status
 I have hosted PokéFinder since the base app is complete. I did have more plans for improvement, but I put it on the back-burner because:
