@@ -35,17 +35,16 @@ body {
    /* margin-top: 0.1%; */
 }
 
-/* .NavBar h2 {
-   display: flex;
-   align-content: center;
-} */
+.NavBar h2 {
+   padding: 1% 0 1% 2%;
+}
 
 .SearchBox {
    /* order: 2; */
    /* position: absolute; */
    /* top: 0; */
    /* left: 0; */
-   /* padding-top: 5%; */
+   padding: 1% 0 0 2%;
    /* width: 100%; */
 }
 
@@ -54,12 +53,13 @@ input {
 }
 
 .Card_Container {
-   margin-top: 6%;
+   
+   margin-top: 4%;
    display: grid;
-   grid-template-columns: repeat(2, calc((60%) / 2));
-   /* 2 columns */
+   grid-template-columns: repeat(2, minmax(1rem, 1fr));
+   /* grid-template-columns: repeat(2, calc((60%) / 2)); */
    gap: 1.5rem;
-   margin-right: -50%;
+   /* margin-right: -50%; */
 }
 
 .left_content img {
@@ -88,7 +88,7 @@ input {
 }
 
 .right_content {
-   padding-top: 3%;
+   /* padding-top: 1%; */
    width: 50%;
    text-align: center;
    color: black;
@@ -125,8 +125,19 @@ input {
 .btn_div {
    display: flex;
    /* gap: 10px; */
+   margin-top: 1%;
 }
 
 .OfficialArtwork {
    width: 15rem;
 }
+
+@media (min-width: 1686px) {
+   body {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+   }
+ }
+
+ /*turns out my second monitors screen is 1685px*/

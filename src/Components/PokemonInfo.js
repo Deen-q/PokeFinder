@@ -18,7 +18,7 @@ export default function PokemonInfo({ selectedPokemon }) {
 
   return (
     <div>
-      <p>Selected Pokemon Info:</p>
+      <p className='selectedPokemonInfo'>Selected Pokemon Info:</p>
       <h3>{capitalisedName}</h3>
 
       <img 

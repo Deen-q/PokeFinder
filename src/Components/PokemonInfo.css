@@ -1,5 +1,9 @@
+.selectedPokemonInfo {
+  padding-bottom: 1%;
+}
+
 .statsTable {
-    border-collapse: collapse;
+    /* border-collapse: collapse; */
     width: 100%;
   }
   
