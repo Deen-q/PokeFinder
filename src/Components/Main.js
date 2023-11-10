@@ -91,53 +91,55 @@ export default function Main() {
 
 
   return (
-    <div className="Main_js_container">
+    <>
       <NavBar />
 
       <div className="SearchBox">
-        <input
-          placeholder="Search by name or number"
-          type="text"
-          onChange={handleSearchInputChange}
-        />
-        <button 
-        className="SearchButton"
-        onClick={handleSearchButtonClick}
-        >Search</button>
-      </div>
-
-      <div className="left_content">
-        <div className="Card_Container">
-        {/*Iteration: make 1 card per Pokemon*/}
-        {pokemon.map((p, index) => (
-          <Card key={index} pokemon={p} handleCardClick={handleCardClick} />
-        ))}
+          <input
+            placeholder="Search by name or number"
+            type="text"
+            onChange={handleSearchInputChange}
+          />
+          <button className="SearchButton" onClick={handleSearchButtonClick}>
+            Search
+          </button>
         </div>
 
-        <div className="btn_div">
-        {/* "Conditional Rendering" */}
-          {prevPageState && (
+      <div className="Main_js_container">
+        
+        <div className="left_content">
+          <div className="Card_Container">
+            {/*Iteration: make 1 card per Pokemon*/}
+            {pokemon.map((p, index) => (
+              <Card key={index} pokemon={p} handleCardClick={handleCardClick} />
+            ))}
+          </div>
+          <div className="btn_div">
+            {/* "Conditional Rendering" */}
+            {prevPageState && (
+              <button
+                onClick={() => {
+                  setCurrentUrl(prevPageState);
+                }}
+              >
+                Previous
+              </button>
+            )}
             <button
               onClick={() => {
-                setCurrentUrl(prevPageState);
+                setCurrentUrl(nextPageState);
               }}
             >
-              Previous
+              Next
             </button>
-          )}
-          <button
-            onClick={() => {
-              setCurrentUrl(nextPageState);
-            }}
-          >
-            Next
-          </button>
-        </div> {/*end of btn-div*/}
-      </div> {/*End of left-content div*/}
-
-      <div className="right_content">
-        <PokemonInfo selectedPokemon={selectedPokemon} />
+          </div>{" "}
+          {/*end of btn-div*/}
+        </div>{" "}
+        {/*End of left-content div*/}
+        <div className="right_content">
+          <PokemonInfo selectedPokemon={selectedPokemon} />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
