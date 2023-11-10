@@ -3,25 +3,25 @@
 :root {
    --red-button-color: #B74555;
    --card-color: #3fd1d4;
- }  
+}
 
-*{
+* {
    padding: 0;
    margin: 0;
    font-family: 'Montserrat', sans-serif;
 }
 
-body{
+body {
    background-color: bisque;
 }
 
 .Main_js_container {
-    /* width: 100%; */
-    margin: 0 2% 0 2%;
-    /* padding-top: 5%; */
-    display: flex;
-    /* position: relative; */
-    /* position: column; */
+   /* width: 100%; */
+   margin: 0 2% 0 2%;
+   /* padding-top: 5%; */
+   display: flex;
+   /* position: relative; */
+   /* position: column; */
 }
 
 .NavBar {
@@ -47,24 +47,26 @@ body{
    /* left: 0; */
    /* padding-top: 5%; */
    /* width: 100%; */
-  }
-
-  input {
-   width: 15%;
-  }
-
-.Card_Container {
-   padding-top: 6%;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(300px, 1fr)); /* 2 columns */
-    gap: 2rem;
 }
 
-  .left_content img{
+input {
+   width: 15%;
+}
+
+.Card_Container {
+   margin-top: 6%;
+   display: grid;
+   grid-template-columns: repeat(2, calc((60%) / 2));
+   /* 2 columns */
+   gap: 1.5rem;
+   margin-right: -50%;
+}
+
+.left_content img {
    width: 30%;
 }
 
-.Card_js{
+.Card_js {
    width: 300px;
    height: 75px;
    background-color: var(--card-color);
@@ -79,11 +81,13 @@ body{
    cursor: pointer;
 }
 
-.left_content, .right_content { /* Card.js */
+.left_content,
+.right_content {
+   /* Card.js */
    flex-basis: 50%;
 }
 
-.right_content{
+.right_content {
    padding-top: 3%;
    width: 50%;
    text-align: center;
@@ -104,25 +108,25 @@ body{
 }
 
 .btn_div button {
-  /* display: flex; */
-  outline: none;
-  border: none;
-  width: 150px;
-  height: 35px;
-  padding: 0.3rem 0;
-  margin: 1rem;
-  font-size: 17px;
-  color: white;
-  background-color: var(--red-button-color);
-  border-radius: 8px;
-  cursor: pointer;
+   /* display: flex; */
+   outline: none;
+   border: none;
+   width: 150px;
+   height: 35px;
+   padding: 0.3rem 0;
+   margin: 1rem;
+   font-size: 17px;
+   color: white;
+   background-color: var(--red-button-color);
+   border-radius: 8px;
+   cursor: pointer;
 }
 
-.btn_div{
+.btn_div {
    display: flex;
    /* gap: 10px; */
 }
 
 .OfficialArtwork {
-   width:15rem;
+   width: 15rem;
 }

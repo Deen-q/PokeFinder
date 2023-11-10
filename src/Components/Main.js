@@ -68,7 +68,7 @@ export default function Main() {
 
   function handleSearchInputChange(e) {
     setSearchedPokemonName(e.target.value.toLowerCase());
-  };
+  }
 
   async function handleSearchButtonClick() {
     try {
@@ -85,28 +85,26 @@ export default function Main() {
       setSelectedPokemon(null);
       setLoading(false);
     }
-  };
+  }
 
-  if (loading) return <h2 className="LoadingAlert">Loading...</h2>
-
+  if (loading) return <h2 className="LoadingAlert">Loading...</h2>;
 
   return (
     <>
       <NavBar />
 
       <div className="SearchBox">
-          <input
-            placeholder="Search by name or number"
-            type="text"
-            onChange={handleSearchInputChange}
-          />
-          <button className="SearchButton" onClick={handleSearchButtonClick}>
-            Search
-          </button>
-        </div>
+        <input
+          placeholder="Search by name or number"
+          type="text"
+          onChange={handleSearchInputChange}
+        />
+        <button className="SearchButton" onClick={handleSearchButtonClick}>
+          Search
+        </button>
+      </div>
 
       <div className="Main_js_container">
-        
         <div className="left_content">
           <div className="Card_Container">
             {/*Iteration: make 1 card per Pokemon*/}
