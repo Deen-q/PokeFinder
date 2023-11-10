@@ -3,13 +3,13 @@
 }
 
 .statsTable {
-    /* border-collapse: collapse; */
-    width: 100%;
-  }
-  
-  .statsTable th,
-  .statsTable td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: center;
-  }
+  /* border-collapse: collapse; */
+  width: 100%;
+}
+
+.statsTable th,
+.statsTable td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}

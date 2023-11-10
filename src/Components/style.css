@@ -25,18 +25,35 @@ body {
 }
 
 .NavBar {
-   /* order: 1; */
-   /* position: absolute; */
-   /* top: 0; */
    left: 0;
-   /* padding-top: 1%; */
    background-color: rgb(249, 212, 166);
    width: 100%;
-   /* margin-top: 0.1%; */
+   /*below, needed for GitHub icon*/
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
 }
 
 .NavBar h2 {
    padding: 1% 0 1% 2%;
+}
+
+.NavBar>a {
+   margin-left: auto;
+   width: 3%;
+   margin-right: 1%;
+   cursor: pointer;
+   transition: transform 0.3s;
+   /*smoother animation*/
+}
+
+.NavBar>a>img {
+   width: 100%;
+   /* ensure  image takes up 100% of the anchor's width */
+}
+
+.NavBar>img:hover {
+   transform: scale(0.97);
 }
 
 .SearchBox {
@@ -53,7 +70,7 @@ input {
 }
 
 .Card_Container {
-   
+
    margin-top: 4%;
    display: grid;
    grid-template-columns: repeat(2, minmax(1rem, 1fr));
@@ -134,10 +151,10 @@ input {
 
 @media (min-width: 1686px) {
    body {
-     display: flex;
-     justify-content: center;
-     align-items: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
    }
- }
+}
 
- /*turns out my second monitors screen is 1685px*/
+/*turns out my second monitors screen is 1685px*/
