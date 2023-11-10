@@ -67,10 +67,10 @@ export default function Main() {
   }, [currentUrl]); // end of useEffect
 
   function handleSearchInputChange(e) {
-    if(e.target.value === "") {
+    if (e.target.value === "") {
       alert("Please enter a Pokemon name or number");
     } else {
-    setSearchedPokemonName(e.target.value.toLowerCase());
+      setSearchedPokemonName(e.target.value.toLowerCase());
     }
   }
 
