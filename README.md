@@ -2,9 +2,8 @@
 A simple 'PokeDex' i.e., an encyclopedia of Pokemon. The first React I created by myself to help solidify my understanding, back when I was still new to React 🤓
 <br>
 <br>
-The site can be found at this link (also on the right hand side of this page):
-<br>
-
+The site can be found at this link (also on the right hand side of this page): [https://github.com/Deen-q/PokeFinder](https://pokefinder-deen-q.vercel.app/).
+          
 
 ## Status
 I have hosted PokéFinder since the base app is complete. I did have more plans for improvement, but I put it on the back-burner because:
@@ -14,6 +13,6 @@ I have hosted PokéFinder since the base app is complete. I did have more plans 
 - I got bored since the app is quite simple. Extra features would not really develop my skills to the level I would like. Still, I'm proud of how far I've come 😁
 
 ## Credit:
-Special thanks to <a href='https://github.com/Kirti-salunkhe'>Kirti Salunkhe</a> for the DESIGN inspiration - splitting the page in 2 plus the colour palette really appealed to me.
+Special thanks to <a href='https://github.com/Kirti-salunkhe'>Kirti Salunkhe</a>'s YouTube video. DESIGN wise, I was inspired to split the page into 2 sections, one for cards and the other for info. Usually I like to customise things entirely to my liking, but the colour palette really resonated with me.
 <br>
-Note: the code is completely different in my project. Regardless, the tutorial was very useful in the beginnings of my app since at the time, I was new to React!
+Note: the code is completely different in my project. Regardless, the tutorial was very useful at the time.
